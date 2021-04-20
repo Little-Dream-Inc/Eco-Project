@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inputs : MonoBehaviour
+public class BinInput : MonoBehaviour
 {
     Cart currentCart;
     Vector2 startPos;
