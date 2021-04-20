@@ -22,9 +22,6 @@ public class TouchInput : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                print("touched at " + touch.position);
-                demoParts.transform.position = Camera.main.ScreenToWorldPoint(touch.position);
-                demoParts.Play();
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
 
                 if (hit.collider != null && hit.collider.CompareTag("Bin"))
