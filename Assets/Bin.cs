@@ -5,7 +5,13 @@ using UnityEngine;
 public class Bin : MonoBehaviour
 {
     public GarbageType type; //TODO make read-only
+    CameraShake shaker;
+    [SerializeField] ParticleSystem successParticles;
 
+    private void Awake()
+    {
+        shaker = FindObjectOfType<CameraShake>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("triggered!!");
@@ -27,10 +33,12 @@ public class Bin : MonoBehaviour
         if(isCorrect)
         {
             print("Great");
+            successParticles.Play();
         }
         else
         {
             print("Wrong!");
+            shaker.shakeDuration = 0.5f;
         }
     }
 }
