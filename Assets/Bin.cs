@@ -8,7 +8,8 @@ public class Bin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Garbage"))
+        print("triggered!!");
+        if (collision.gameObject.CompareTag("Garbage"))
         {
             bool isCorrect = false;
             var garbageType = collision.gameObject.GetComponent<Garbage>().type;
@@ -17,6 +18,7 @@ public class Bin : MonoBehaviour
                 isCorrect = true;
             }
             GarbageFeedback(isCorrect);
+            Destroy(collision.gameObject, .2f);
         }
     }
 
