@@ -10,7 +10,7 @@ public enum GarbageType
 public class BinManager : MonoBehaviour
 {
     [SerializeField] List<Bin> bins;
-    [SerializeField] List<Transform> binPlaces;
+    public List<Transform> binPlaces;
     [SerializeField] float transitionTime = 0.5f;
 
     private void Start()
