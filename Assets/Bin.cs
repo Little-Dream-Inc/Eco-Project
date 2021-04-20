@@ -39,6 +39,7 @@ public class Bin : MonoBehaviour
         {
             print("Wrong!");
             shaker.shakeDuration = 0.5f;
+            Handheld.Vibrate();
         }
     }
 }
