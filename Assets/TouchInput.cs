@@ -7,6 +7,8 @@ public class TouchInput : MonoBehaviour
     Vector2 startPos;
     GameObject currentBin;
     BinManager manager;
+    
+    
     public ParticleSystem demoParts;
 
     void Start()

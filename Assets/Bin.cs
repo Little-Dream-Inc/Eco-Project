@@ -7,9 +7,12 @@ public class Bin : MonoBehaviour
     public GarbageType type; //TODO make read-only
     CameraShake shaker;
     [SerializeField] ParticleSystem successParticles;
-
+    [SerializeField] AudioClip successSound;
+    [SerializeField] AudioClip failSound;
+    AudioSource audioSource;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         shaker = FindObjectOfType<CameraShake>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,10 +37,12 @@ public class Bin : MonoBehaviour
         {
             print("Great");
             successParticles.Play();
+            audioSource.PlayOneShot(successSound);
         }
         else
         {
             print("Wrong!");
+            audioSource.PlayOneShot(failSound);
             shaker.shakeDuration = 0.5f;
             Handheld.Vibrate();
         }

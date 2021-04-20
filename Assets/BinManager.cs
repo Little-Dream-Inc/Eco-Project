@@ -12,12 +12,17 @@ public class BinManager : MonoBehaviour
     [SerializeField] List<Bin> bins;
     public List<Transform> binPlaces;
     [SerializeField] float transitionTime = 0.5f;
+    AudioSource source;
 
     private void Start()
     {
-        OnExchange();
+        source = GetComponent<AudioSource>();
+        for (int i = 0; i < bins.Count; i++)
+        {
+            bins[i].gameObject.transform.position = binPlaces[i].position;
+        }
     }
-    public void Reorder(Bin bin, int direction)
+        public void Reorder(Bin bin, int direction)
     {
         int place = bins.IndexOf(bin);
         print(place);
@@ -39,7 +44,8 @@ public class BinManager : MonoBehaviour
 
     void OnExchange()
     {
-        for(int i = 0; i < bins.Count; i++)
+        source.Play();
+        for (int i = 0; i < bins.Count; i++)
         {
             //bins[i].gameObject.transform.position = binPlaces[i].position;
             StartCoroutine(LerpBin(bins[i], binPlaces[i]));
