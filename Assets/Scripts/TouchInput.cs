@@ -40,6 +40,7 @@ public class TouchInput : MonoBehaviour
 
                 int direction = (startPos.x <= pos.x) ? 1 : -1;
                 manager.Reorder(currentBin.GetComponent<Bin>(), direction);
+                currentBin = null;
             }
         }
     }
