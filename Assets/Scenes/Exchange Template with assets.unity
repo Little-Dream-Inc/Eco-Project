@@ -436,7 +436,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1869,8 +1869,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1988,7 +1988,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -5699,7 +5699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5449877614235821332, guid: 9bac7f3b9b48422418307c6ed6a1f7cd, type: 3}
+  m_Sprite: {fileID: 4027018009614915596, guid: 9bac7f3b9b48422418307c6ed6a1f7cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6098,10 +6098,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper particles
       objectReference: {fileID: 0}
+    - target: {fileID: 1006410501, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1006410502, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1006410502, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006410502, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006410502, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
     - target: {fileID: 31894062845868909, guid: 481c15c4c08a8814399cc7cb281a56a0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6163,10 +6179,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass particles
       objectReference: {fileID: 0}
+    - target: {fileID: 347872224, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 347872225, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 347872225, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 347872225, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 347872225, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
     - target: {fileID: 5083837490948641048, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
       propertyPath: m_Name
       value: GlassBin
@@ -6224,10 +6256,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1615952460}
     m_Modifications:
+    - target: {fileID: 214770599, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 214770600, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 214770600, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 214770600, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 214770600, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
     - target: {fileID: 6987967931682652898, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
       propertyPath: m_Name
       value: PlasticBin
