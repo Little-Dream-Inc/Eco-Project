@@ -7,12 +7,14 @@ public enum GarbageType
     Paper, Glass, Plastic
 }
 
+//Controls movement and ordering of bins
 public class BinManager : MonoBehaviour
 {
     [SerializeField] List<Bin> bins;
     public List<Transform> binPlaces;
     [SerializeField] float transitionTime = 0.5f;
     AudioSource source;
+    bool canMoveBins;
 
     private void Start()
     {
@@ -21,9 +23,19 @@ public class BinManager : MonoBehaviour
         {
             bins[i].gameObject.transform.position = binPlaces[i].position;
         }
+        FindObjectOfType<PauseHandler>().OnPauseEvent += OnPause;
+        canMoveBins = true;
     }
-        public void Reorder(Bin bin, int direction)
+
+    void OnPause(bool pause)
     {
+        canMoveBins = !canMoveBins;
+    }
+
+    public void Reorder(Bin bin, int direction)
+    {
+        if (!canMoveBins) return;
+
         int place = bins.IndexOf(bin);
         print(place);
         direction = direction > 0 ? 1 : -1;
@@ -63,7 +75,5 @@ public class BinManager : MonoBehaviour
         }
 
         bin.transform.position = target.position;
-            
-    
     }
 }

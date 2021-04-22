@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public delegate void OnScoreChanged(int score);
+    public event OnScoreChanged ScoreChangedEvent;
+
     int currentScore; //TODO make accessor
 
     // Start is called before the first frame update
@@ -29,7 +32,4 @@ public class ScoreManager : MonoBehaviour
         currentScore = 0;
         ScoreChangedEvent(currentScore);
     }
-
-    public delegate void OnScoreChanged(int score);
-    public event OnScoreChanged ScoreChangedEvent;
 }
