@@ -10,10 +10,12 @@ public class Bin : MonoBehaviour
     [SerializeField] AudioClip successSound;
     [SerializeField] AudioClip failSound;
     AudioSource audioSource;
+    ScoreManager scoreManager;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         shaker = FindObjectOfType<CameraShake>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,10 +23,11 @@ public class Bin : MonoBehaviour
         if (collision.gameObject.CompareTag("Garbage"))
         {
             bool isCorrect = false;
-            var garbageType = collision.gameObject.GetComponent<Garbage>().type;
-            if (garbageType == type)
+            var garbage = collision.gameObject.GetComponent<Garbage>();
+            if (garbage.type == type)
             {
                 isCorrect = true;
+                scoreManager.AddScore(garbage.GetScorePrice());
             }
             GarbageFeedback(isCorrect);
             Destroy(collision.gameObject, .2f);
