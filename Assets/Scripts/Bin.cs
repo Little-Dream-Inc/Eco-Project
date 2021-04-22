@@ -11,11 +11,13 @@ public class Bin : MonoBehaviour
     [SerializeField] AudioClip failSound;
     AudioSource audioSource;
     ScoreManager scoreManager;
+    LevelManager levelManager;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         shaker = FindObjectOfType<CameraShake>();
         scoreManager = FindObjectOfType<ScoreManager>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,6 +46,8 @@ public class Bin : MonoBehaviour
         }
         else
         {
+            levelManager.OnFail();
+
             print("Wrong!");
             audioSource.PlayOneShot(failSound);
             shaker.shakeDuration = 0.5f;

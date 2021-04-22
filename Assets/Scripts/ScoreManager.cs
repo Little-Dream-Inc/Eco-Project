@@ -22,10 +22,7 @@ public class ScoreManager : MonoBehaviour
         ScoreChangedEvent(currentScore);
     }
 
-    public int GetScore()
-    {
-        return currentScore;
-    }
+    public int GetScore() => currentScore;
 
     public void ResetScore()
     {
