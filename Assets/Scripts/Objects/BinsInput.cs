@@ -5,20 +5,40 @@ using UnityEngine;
 
 public class BinsInput : MonoBehaviour
 {
+    LevelManager levelManager;
     Vector2 startPos;
     GameObject currentBin;
-    BinManager manager;
+    BinManager binManager;
+
+    bool gameOver;
     // Start is called before the first frame update
     void Start()
     {
-        manager = FindObjectOfType<BinManager>();
+        binManager = FindObjectOfType<BinManager>();
+        levelManager = FindObjectOfType<LevelManager>();
+        levelManager.GameOverEvent += OnGameOver;
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleTouchInput();
-        HandleMouseInput();
+        if(!gameOver)
+        {
+            HandleTouchInput();
+            HandleMouseInput();
+        } else
+        {
+            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+            {
+                levelManager.OnRestart();
+            }
+        }
+       
+    }
+
+    void OnGameOver()
+    {
+        gameOver = true;
     }
 
     private void HandleMouseInput()
@@ -39,7 +59,7 @@ public class BinsInput : MonoBehaviour
             var pos = Input.mousePosition;
 
             int direction = (startPos.x <= pos.x) ? 1 : -1;
-            manager.Reorder(currentBin.GetComponent<Bin>(), direction);
+            binManager.Reorder(currentBin.GetComponent<Bin>(), direction);
             currentBin = null;
         }
     }
@@ -66,7 +86,7 @@ public class BinsInput : MonoBehaviour
                 var pos = touch.position;
 
                 int direction = (startPos.x <= pos.x) ? 1 : -1;
-                manager.Reorder(currentBin.GetComponent<Bin>(), direction);
+                binManager.Reorder(currentBin.GetComponent<Bin>(), direction);
                 currentBin = null;
             }
         }

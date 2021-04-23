@@ -12,7 +12,13 @@ public class LevelManager : MonoBehaviour
     public event OnGameOver GameOverEvent;
 
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject levelCompletedScreen;
+    [SerializeField] Animator garbageTruck;
+
     [SerializeField] int totalLives;
+    [SerializeField] float levelTime;
+
+    bool isFailed;
     int livesCount;
 
 
@@ -20,6 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         ResetLives();
         GameOverEvent += GameOver;
+        StartCoroutine(LevelTimer());
     }
 
     public int GetLives() => livesCount;
@@ -30,20 +37,25 @@ public class LevelManager : MonoBehaviour
         LivesChangedEvent(livesCount);
         if (livesCount <= 0)
         {
+            isFailed = true;
             GameOverEvent();
         }
     }
 
     void GameOver()
     {
-        gameOverScreen.GetComponent<RectTransform>().Rotate(Vector2.up, -90); //TODO Make it better way
-        if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+        if(isFailed)
         {
-            OnRestart();
+            gameOverScreen.GetComponent<RectTransform>().Rotate(Vector2.up, -90); //TODO Make it better way
+        }
+        else
+        {
+            levelCompletedScreen.GetComponent<RectTransform>().Rotate(Vector2.up, -90); //TODO Make it better way
+            garbageTruck.SetTrigger("Win");
         }
     }
 
-    void OnRestart()
+    public void OnRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -52,5 +64,17 @@ public class LevelManager : MonoBehaviour
     {
         livesCount = totalLives;
         LivesChangedEvent(livesCount);
+    }
+
+    IEnumerator LevelTimer()
+    {
+        float timer = levelTime;
+        while(timer > 0)
+        {
+            yield return null;
+            timer -= Time.deltaTime;
+
+        }
+        GameOverEvent();
     }
 }

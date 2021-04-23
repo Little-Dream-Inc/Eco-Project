@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  speed: 1.5
+  speed: 1.7
   scorePrice: 3
 --- !u!61 &7915029030925021870
 BoxCollider2D:
