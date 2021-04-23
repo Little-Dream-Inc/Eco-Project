@@ -2248,7 +2248,7 @@ MonoBehaviour:
   levelCompletedScreen: {fileID: 1167434055}
   garbageTruck: {fileID: 0}
   totalLives: 3
-  levelTime: 10
+  levelTime: 60
 --- !u!1 &1794972496
 GameObject:
   m_ObjectHideFlags: 0
