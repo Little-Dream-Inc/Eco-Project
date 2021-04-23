@@ -1169,7 +1169,6 @@ GameObject:
   - component: {fileID: 1775707597}
   - component: {fileID: 1775707598}
   - component: {fileID: 1775707602}
-  - component: {fileID: 1775707599}
   - component: {fileID: 1775707601}
   - component: {fileID: 1775707600}
   - component: {fileID: 1775707603}
@@ -1248,19 +1247,6 @@ MonoBehaviour:
   maxDelay: 3
   garbageParent: {fileID: 340867178}
   spawnHeight: 10
---- !u!114 &1775707599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775707594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8f5f94bf874f444b8c7625039c2051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  demoParts: {fileID: 0}
 --- !u!82 &1775707600
 AudioSource:
   m_ObjectHideFlags: 0
