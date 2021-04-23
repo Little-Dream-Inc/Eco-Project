@@ -1726,6 +1726,22 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
+    - target: {fileID: 2089300562585448884, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089300562585448884, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089300562585448884, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
+    - target: {fileID: 2089300562585448887, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5083837490948641048, guid: 522525cda6ad60047ad19ae032c062b9, type: 3}
       propertyPath: m_Name
       value: GlassBin
@@ -1803,6 +1819,10 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 506821ea10a7cfd449f70aa8c52f64b8, type: 3}
+    - target: {fileID: 2926795123750814020, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
+      propertyPath: m_Name
+      value: Plastic particles
+      objectReference: {fileID: 0}
     - target: {fileID: 6987967931682652898, guid: cdc731c524ebc8849a75fe24e16c373b, type: 3}
       propertyPath: m_Name
       value: PlasticBin
