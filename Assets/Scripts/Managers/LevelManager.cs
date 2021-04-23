@@ -8,13 +8,18 @@ public class LevelManager : MonoBehaviour
     public delegate void OnLivesChanged(int lives);
     public event OnLivesChanged LivesChangedEvent;
 
-     
+    public delegate void OnGameOver();
+    public event OnGameOver GameOverEvent;
+
+    [SerializeField] GameObject gameOverScreen;
     [SerializeField] int totalLives;
     int livesCount;
+
 
     private void Start()
     {
         ResetLives();
+        GameOverEvent += GameOver;
     }
 
     public int GetLives() => livesCount;
@@ -25,13 +30,17 @@ public class LevelManager : MonoBehaviour
         LivesChangedEvent(livesCount);
         if (livesCount <= 0)
         {
-            OnGameOver();
+            GameOverEvent();
         }
     }
 
-    void OnGameOver()
+    void GameOver()
     {
-        OnRestart();
+        gameOverScreen.GetComponent<RectTransform>().Rotate(Vector2.up, -90); //TODO Make it better way
+        if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+        {
+            OnRestart();
+        }
     }
 
     void OnRestart()
@@ -43,6 +52,5 @@ public class LevelManager : MonoBehaviour
     {
         livesCount = totalLives;
         LivesChangedEvent(livesCount);
-
     }
 }

@@ -27,7 +27,7 @@ public class BinManager : MonoBehaviour
         canMoveBins = true;
     }
 
-    void OnPause(bool pause)
+    void OnPause()
     {
         canMoveBins = !canMoveBins;
     }

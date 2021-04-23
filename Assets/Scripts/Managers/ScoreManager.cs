@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    LevelManager levelManager;
+
     public delegate void OnScoreChanged(int score);
     public event OnScoreChanged ScoreChangedEvent;
 
@@ -12,7 +14,14 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GetComponent<LevelManager>();
+        levelManager.GameOverEvent += OnGameOver;
         ResetScore();
+    }
+
+    void OnGameOver()
+    {
+        ScoreChangedEvent(currentScore);
     }
 
     // Update is called once per frame
@@ -21,8 +30,6 @@ public class ScoreManager : MonoBehaviour
         currentScore += scoreToAdd;
         ScoreChangedEvent(currentScore);
     }
-
-    public int GetScore() => currentScore;
 
     public void ResetScore()
     {

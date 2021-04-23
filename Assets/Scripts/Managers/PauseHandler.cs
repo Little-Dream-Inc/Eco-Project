@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class PauseHandler : MonoBehaviour
 {
-    public delegate void OnPause(bool isPaused);
+    LevelManager levelManager;
+
+    public delegate void OnPause();
     public event OnPause OnPauseEvent;
 
     bool paused;
+    bool stopped;
 
     private void Start()
     {
+        levelManager = GetComponent<LevelManager>();
+        levelManager.GameOverEvent += StopGame;
         OnPauseEvent += OnGamePause;
     }
     public void OnPauseButton()
     {
-        OnPauseEvent(paused);
+        OnPauseEvent();
     }
 
-    void OnGamePause(bool isPaused)
+    void StopGame()
     {
-        Time.timeScale = isPaused ? 1 : 0;
+        stopped = true;
+        OnPauseEvent();
+    }
+
+    void OnGamePause()
+    {
+        if (paused && stopped) return;
+        Time.timeScale = paused ? 1 : 0;
         paused = !paused;
     }
 

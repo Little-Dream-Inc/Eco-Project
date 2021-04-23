@@ -17,12 +17,16 @@ public class CameraShake : MonoBehaviour
 
 	Vector3 originalPos;
 
+	LevelManager levelManager;
+
 	void Awake()
 	{
 		if (camTransform == null)
 		{
 			camTransform = GetComponent(typeof(Transform)) as Transform;
 		}
+		levelManager = FindObjectOfType<LevelManager>();
+		levelManager.GameOverEvent += OnGameOver;
 	}
 
 	void OnEnable()
@@ -30,7 +34,12 @@ public class CameraShake : MonoBehaviour
 		originalPos = camTransform.localPosition;
 	}
 
-	void Update()
+    private void OnGameOver()
+    {
+		shakeAmount = 0;
+	}
+
+    void Update()
 	{
 		if (shakeDuration > 0)
 		{
